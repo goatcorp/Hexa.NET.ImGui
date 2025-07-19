@@ -25,9 +25,9 @@
         private const string CImNodesHeader = "cimnodes/cimnodes.h";
         private const string CImPlotHeader = "cimplot/cimplot.h";
 
-        private const string ImGuizmoOutputPath = "../../../../Hexa.NET.ImGuizmo/Generated";
-        private const string ImNodesOutputPath = "../../../../Hexa.NET.ImNodes/Generated";
-        private const string ImPlotOutputPath = "../../../../Hexa.NET.ImPlot/Generated";
+        private const string ImGuizmoOutputPath = "../../../../../../imgui/Dalamud.Bindings.ImGuizmo/Generated";
+        private const string ImNodesOutputPath = "../../../../../../imgui/Dalamud.Bindings.ImNodes/Generated";
+        private const string ImPlotOutputPath = "../../../../../../imgui/Dalamud.Bindings.ImPlot/Generated";
 
         public static BuildSystemBuilder AddImGuizmo(this BuildSystemBuilder builder, string configPath = CImGuizmoConfig, string outputPath = ImGuizmoOutputPath)
         {

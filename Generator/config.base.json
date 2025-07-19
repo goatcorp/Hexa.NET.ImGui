@@ -68,7 +68,7 @@
     "ImU64": "ulong",
     "ImWchar16": "ushort",
     "ImWchar32": "uint",
-    "ImWchar": "uint",
+    "ImWchar": "ushort",
     "ImDrawIdx": "ushort",
     "ImGuiKeyChord": "int",
     "ImGuiKeyRoutingIndex": "short",
