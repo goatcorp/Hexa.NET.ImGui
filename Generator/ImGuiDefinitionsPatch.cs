@@ -15,6 +15,14 @@
 
     public class ImGuiDefinitionsPatch : PrePatch
     {
+        // ImPlot 1.0 turned these from macros into constants, so cimplot no longer expands them.
+        // Enum-typed parameters would otherwise get guessed enum members like ImAxis.Auto.
+        private static readonly Dictionary<string, string> ExpandedConstants = new()
+        {
+            ["IMPLOT_AUTO"] = "-1",
+            ["ImPlotMarker_Invalid"] = "-3",
+        };
+
         private readonly InternalsGenerationType generationType;
         private HashSet<string> names = [];
 
@@ -52,6 +60,14 @@
                         {
                             settings.IgnoredFunctions.Add(overload.ExportedName);
                             continue;
+                        }
+                    }
+
+                    foreach (var (name, value) in overload.DefaultValues.ToArray())
+                    {
+                        if (ExpandedConstants.TryGetValue(value, out var expanded))
+                        {
+                            overload.DefaultValues[name] = expanded;
                         }
                     }
 
